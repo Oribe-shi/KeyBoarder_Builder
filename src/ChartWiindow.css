@@ -1,0 +1,202 @@
+.Size0 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 1;
+}
+
+.LongNoteContrast {
+    filter: contrast(40%);
+}
+
+.LongNoteLengthZ_Index {
+    z-index: -1;
+}
+
+.LongNoteLength {
+    position: absolute;
+    width: 80px;
+    height: 100px;
+    background-color: rgb(222, 222, 222);
+    border-radius: 5px;
+    border: solid 2px rgb(88, 88, 88);
+    margin: 26px;
+    margin-top: 38px;
+    transform-origin: center 0;
+    rotate: 180deg;
+}
+
+.OriginCenter {
+    position: absolute;
+    width: 136px;
+    height: 76.5px;
+    transform-origin: center;
+}
+
+#ChartMode_Frame {
+    position: absolute;
+    width: 1020px;
+    height: 600px;
+    top: 0px;
+    transform-origin: center;
+}
+
+#PauseMode {
+    position: absolute;
+    width: 1020px;
+    height: 600px;
+    top: -21.5px;
+    left: -8px;
+    z-index: 10;
+    opacity: 1;
+}
+
+#PauseWindow {
+    position: absolute;
+    background-color: rgb(44, 83, 223);
+    width: 1020px;
+    height: 600px;
+    color: white;
+    z-index: 10;
+    opacity: 0;
+}
+
+#PauseWindow h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#ResumeWindow {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 420px;
+    height: 250px;
+    border-radius: 10px;
+    border: solid 1px rgb(178, 178, 178);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    opacity: 0;
+}
+
+#ResumeWindow h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+#ResumeSeekBarDiv {
+    position: absolute;
+    width: 310px;
+    height: 20px;
+    border: solid 1px rgb(76, 76, 76);
+    top: 180px;
+    left: 30px;
+}
+
+#ResumeSeekBar {
+    position: absolute;
+    background: linear-gradient(to right, rgb(87, 136, 220), rgb(181, 207, 252), rgb(87, 136, 220));
+    background-size: 200px 200px; /* グラデーションのサイズを100px x 100pxの正方形で繰り返す */
+    background-repeat: repeat; /* 両方向に繰り返す */
+    width: 100%;
+    height: 100%;
+    animation: GradientAnimation 0.5s linear infinite;
+}
+
+@keyframes GradientAnimation {
+    0% {
+        background-position: -200px 100px;
+    }
+    100% {
+        background-position: 0px 100px;
+    }
+}
+
+.ResumeText {
+    position: absolute;
+    width: 280px;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap; /* テキストを一行に保持 */
+    text-overflow: ellipsis; /* オーバーフローしたテキストを省略記号で表示 */
+}
+
+#ResumePercent {
+    position: absolute;
+    top: 160px;
+    right: 30px;
+    text-align: right;
+}
+
+#ResumeSeconds {
+    position: absolute;
+    top: 185px;
+    right: 30px;
+    text-align: right;
+}
+
+.FrameOriginCenter {
+    position: absolute;
+    width: 1020px;
+    height: 600px;
+    transform-origin: center;
+}
+
+.Evaluationsize {
+    position: absolute;
+    width: 136px;
+    height: 76.5px;
+    text-align: center;
+    -webkit-text-stroke: 0.01em rgb(255, 255, 255);
+    z-index: 10;
+}
+
+.EffectSize {
+    position: absolute;
+    width: 136px;
+    height: 76.5px;
+    z-index: 10;
+}
+
+#BackGroundMovie {
+    position: absolute;
+    width: 1020px;
+    height: 600px;
+    top: -21.5px;
+    left: -8px;
+    background-color: rgb(255, 255, 255);
+}
+
+#PlayMovie {
+    position: absolute;
+    width: 1020px;
+    height: 600px;
+    background-color: rgb(255, 255, 255);
+    z-index: 0;
+}
+
+#COMBOS {
+    position: absolute;
+    width: 100%;
+    top: 4px;
+    left: 0px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: lighter;
+    -webkit-text-stroke: 1.5px rgb(0, 0, 0);
+}
+
+#ScoreByte {
+    position: absolute;
+    width: 100%;
+    top: 4px;
+    right: 10px;
+    text-align: right;
+    color: rgb(255, 255, 255);
+    font-weight: lighter;
+    -webkit-text-stroke: 1.5px rgb(0, 0, 0);
+}
+
+.Reversal {
+    mix-blend-mode: difference;
+}

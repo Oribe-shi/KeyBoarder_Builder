@@ -1,0 +1,715 @@
+* {
+    -webkit-user-select: none;
+    /*Chrome or Safari*/
+    -moz-user-select: none;
+    /*FireFox*/
+    -ms-user-select: none;
+    /*IE*/
+    -o-user-select: none;
+    /*Opera*/
+    user-select: none;
+}
+
+/*マウス選択対策*/
+
+body {
+    font-family: fantasy, MSゴシック;
+    font-weight: 900;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: rgb(255, 255, 255);
+}
+
+/*親要素*/
+
+h1, h2, p {
+    -webkit-transform: skewX(-15deg);
+    -moz-transform: skewX(-15deg);
+    -o-transform: skewX(-15deg);
+    transform: skewX(-15deg);
+}
+
+/*斜体*/
+
+img {
+    -webkit-user-drag: none;
+}
+
+/*画像選択対策*/
+
+@keyframes TytleTranslate {
+    0% {
+        transform: translateY(-25px);
+    }
+
+    100% {
+        transform: translateY(25px);
+    }
+}
+
+/*タイトルアニメーション*/
+
+@keyframes ScrollText {
+    0%, 10% {
+        transform: translateX(0) skewX(-15deg);
+        -webkit-transform: translateX(0) skewX(-15deg);
+        -moz-transform: translateX(0) skewX(-15deg);
+        -o-transform: translateX(0) skewX(-15deg);
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    90% {
+        transform: translateX(calc(-100% + 250px)) skewX(-15deg);
+        -webkit-transform: translateX(calc(-100% + 250px)) skewX(-15deg);
+        -moz-transform: translateX(calc(-100% + 250px)) skewX(-15deg);
+        -o-transform: translateX(calc(-100% + 250px)) skewX(-15deg);
+        opacity: 0;
+    }
+
+    95% {
+        transform: translateX(20px) skewX(-15deg);
+        -webkit-transform: translateX(20px) skewX(-15deg);
+        -moz-transform: translateX(20px) skewX(-15deg);
+        -o-transform: translateX(20px) skewX(-15deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) skewX(-15deg);
+        -webkit-transform: translateX(0) skewX(-15deg);
+        -moz-transform: translateX(0) skewX(-15deg);
+        -o-transform: translateX(0) skewX(-15deg);
+        opacity: 1;
+    }
+}
+
+/*横スクロールアニメーション*/
+
+#MainWindow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /**
+    transform: scale(0.1);
+    transform-origin: center;
+    margin-top: 250px;
+    */
+}
+
+/*メインウィンドウ*/
+
+.WindowUpColor {
+    position: absolute;
+    background-color: rgb(234, 234, 234);
+    width: 100%;
+    height: 21.5px;
+    top: -0.5px;
+    left: -1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 2;
+}
+
+/*ウィンドウバーカラー*/
+
+.WindowBack {
+    position: absolute;
+    background-color: red;
+    font-weight: 500;
+    width: 42px;
+    height: 21.5px;
+    top: -0.5px;
+    right: 0px;
+    border-top-right-radius: 10px;
+    color: rgb(255, 255, 255);
+    z-index: 3;
+}
+
+/*×ボタン部分*/
+
+.Windowicon {
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    z-index: 3;
+}
+
+/*ウィンドウアイコン*/
+
+.WindowTitle {
+    position: absolute;
+    font-family: "";
+    font-style: normal;
+    font-size: 12px;
+    top: -10px;
+    left: 25px;
+    z-index: 3;
+}
+
+/*ウィンドウタイトル*/
+
+.WindowLine {
+    position: absolute;
+    width: 100%;
+    top: 12.4px;
+    left: -1px;
+    z-index: 5;
+}
+
+/*ウィンドウ区切り線*/
+
+.SmallWindow {
+    position: absolute;
+    background-color: rgb(244, 244, 244);
+    border: 3px rgb(76, 76, 76);
+    border-style: groove ridge ridge groove;
+    z-index: 3;
+}
+
+/*スモールウィンドウ*/
+
+.SmallWindowTitle {
+    position: absolute;
+    background-color: rgb(193, 193, 193);
+    width: 50px;
+    height: 20px;
+    border: solid 3px rgb(76, 76, 76);
+    border-top-width: 0px;
+    border-left-width: 0px;
+    padding-top: 4px;
+    font-family: "";
+    font-style: normal;
+    font-size: 12px;
+    z-index: 3;
+}
+
+/*スモールウィンドウタイトル*/
+
+.Center {
+    text-align: center;
+}
+
+#OpeningMovieON {
+    display: block;
+    position: absolute;
+    top: -25px;
+    left: 785px;
+}
+
+/*オープニングモードオン*/
+
+#OpeningMovieOFF {
+    display: none;
+}
+
+/*オープニングモードオフ*/
+
+#StartMenuON {
+    display: block;
+    font-size: 24px;
+    line-height: 18px;
+    opacity: 0;
+    animation: TytleTranslate 5s ease-in-out infinite alternate;
+}
+
+/*スタートモードオン*/
+
+#StartMenuOFF {
+    display: none;
+}
+
+/*スタートモードオフ*/
+
+#SelectMenuON {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 29%;
+    opacity: 0;
+}
+
+/*セレクトモードオン*/
+
+#SelectWindow {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 750px;
+    height: 510px;
+    border-radius: 10px;
+    border: solid 1px rgb(178, 178, 178);
+    top: -15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 1;
+}
+
+/*セレクトウィンドウ*/
+
+#SelectSortText {
+    position: absolute;
+    font-family: "";
+    font-style: normal;
+    font-size: 12px;
+    top: -10px;
+    left: 160px;
+    z-index: 3;
+}
+
+/*セレクトウィンドウタイトル横のソート確認テキスト*/
+
+#ScrollLock {
+    position: absolute;
+    width: 100%;
+    height: 488.5px;
+    top: calc(52.3% - 0.8px);
+    left: 50%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+/*スクロールバー飛び出し防止*/
+
+#MusicList {
+    position: absolute;
+    width: 100%;
+    height: 488.5px;
+    top: calc(50% - 0.8px);
+    left: 50%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+/*セレクト仮HTML*/
+
+.NotClickScrollBar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/*スクロールバーのクリックを不可に*/
+
+.List {
+    position: relative;
+    width: 99.8%;
+    height: 25px;
+    border: solid 1px rgb(178, 178, 178);
+}
+
+/*曲リスト枠*/
+
+.MusicTextFrame {
+    position: absolute;
+    width: 60%;
+    height: 80%;
+    top: 0px;
+    left: 30px;
+    padding-top: 2px;
+    padding-left: 5px;
+    overflow: hidden;
+}
+
+/*曲名枠*/
+
+.MusicText {
+    position: absolute;
+    width: auto;
+    height: 100%;
+
+    -webkit-transform: skewX(-15deg);
+    -moz-transform: skewX(-15deg);
+    -o-transform: skewX(-15deg);
+    transform: skewX(-15deg);
+}
+
+/*曲名*/
+
+.TextOver {
+    position: absolute;
+    width: auto;
+    max-width: 430px;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    -webkit-transform: skewX(-15deg);
+    -moz-transform: skewX(-15deg);
+    -o-transform: skewX(-15deg);
+    transform: skewX(-15deg);
+}
+
+.TextScroll {
+    animation: ScrollText 8s linear infinite;
+}
+
+/*横スクロールアニメーション*/
+
+.MusicDifficultyText {
+    position: absolute;
+    height: 0px;
+    top: -12.5px;
+    left: 520px;
+    font-size: 16px;
+}
+
+/*曲難易度*/
+
+.ScoreText {
+    position: absolute;
+    width: 100px;
+    top: -3px;
+    left: 610px;
+    font-size: 16px;
+    line-height: 0px;
+    text-align: right;
+}
+
+/*スコア*/
+
+.SelectHeight {
+    height: 80px;
+}
+
+/*初期縦幅*/
+
+/*初期ジャケットサイズは何故かサイズ指定すると効かないのでjsで現行*/
+
+.SelectMusic {
+    height: 80%;
+    left: 78px;
+    font-size: 45px;
+    padding-top: 10px;
+}
+
+/*初期曲名大きさ*/
+
+.SelectScore {
+    width: 200px;
+    top: -10px;
+    left: 510px;
+    font-size: 30px;
+}
+
+/*初期曲スコア大きさ*/
+
+.SelectMusicDifficultyText {
+    top: 10px;
+    left: 560px;
+    font-size: 30px;
+}
+
+/*初期曲難易度大きさ*/
+
+#PlayingWaitMenuON {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/*待機メニューモードオン*/
+
+#PlayingWaitWindow {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 540px;
+    height: 360px;
+    border-radius: 10px;
+    border: solid 1px rgb(178, 178, 178);
+    top: -10px;
+    left: 50%;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    opacity: 1;
+}
+
+/*待機ウィンドウ*/
+
+#PlayingWaitUnderWindow {
+    width: 540px;
+    height: 360px;
+    transform-origin: 0% 0%;
+}
+
+/*待機ウィンドウ下部*/
+
+#PlayingWaitJacket {
+    position: absolute;
+    top: 32%;
+    left: 25px;
+}
+
+/*待機ウィンドウジャケット*/
+
+#PlayingWaitMusic {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 482px;
+    height: 70px;
+    top: 9%;
+    left: 24px;
+    padding-left: 5px;
+    overflow: hidden;
+    font-size: 50px;
+}
+
+/*待機ウィンドウ曲名枠*/
+
+#PlayingWaitText {
+    position: absolute;
+    transform-origin: 0% 50%;
+}
+
+/*待機ウィンドウ曲名*/
+
+#PlayingWaitDifficultyText {
+    position: absolute;
+    top: 80px;
+    left: 242px;
+    text-align: left;
+    font-size: 32px;
+}
+
+/*待機ウィンドウ難易度テキスト*/
+
+#PlayingWaitMemoText {
+    position: absolute;
+    top: 150px;
+    left: 242px;
+    text-align: left;
+    font-size: 20px;
+    background-color: rgb(234, 234, 234);
+}
+
+#PlayingWaitLoading {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+    font-size: 20px;
+}
+
+/*待機ウィンドウメモテキスト*/
+
+#PlayingWaitMenuOFF {
+    display: none;
+}
+
+/*待機ウィンドウオフ*/
+
+#SelectMenuOFF {
+    display: none;
+}
+
+/*セレクトモードオフ*/
+
+#SettingMenuON {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 27%;
+    opacity: 0;
+}
+
+/*設定モードオン*/
+
+#SettingWindow {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 540px;
+    height: 360px;
+    border-radius: 10px;
+    border: solid 1px rgb(178, 178, 178);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/*設定ウィンドウ*/
+
+#SettingMenuOFF {
+    display: none;
+}
+
+/*設定モードオフ*/
+
+#PlayModeON {
+    display: block;
+    opacity: 0;
+}
+
+/*プレイモードオン*/
+
+#PlayModeOFF {
+    display: none;
+}
+
+/*プレイモードオフ*/
+
+#ResultMenuON {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 29%;
+    opacity: 0;
+}
+
+/*結果モードオン*/
+
+#ResultWindow {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 750px;
+    height: 510px;
+    border-radius: 10px;
+    border: solid 1px rgb(178, 178, 178);
+    top: -15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 1;
+}
+
+/*結果ウィンドウ*/
+
+#ResultMusic {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 680px;
+    height: 70px;
+    top: 50px;
+    left: 28px;
+    text-align: center;
+    padding-left: 5px;
+    overflow: hidden;
+    font-size: 30px;
+}
+
+/*結果曲名枠*/
+
+#ResultText {
+    position: absolute;
+    margin: 0px;
+    transform-origin: 0% 50%;
+}
+
+/*結果曲名*/
+
+#ResultJacketTemp {
+    position: absolute;
+    top: 150px;
+    left: 16px;
+}
+
+/*結果ジャケット*/
+
+#ResultTOTALCOMBO {
+    position: absolute;
+    bottom: 45px;
+    left: 25px;
+    text-align: left;
+}
+
+/*最大コンボ*/
+
+#ResultBeforeScore {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    text-align: left;
+}
+
+/*過去最高結果スコア*/
+
+#ResultScore {
+    position: absolute;
+    bottom: 0;
+    right: 32px;
+    text-align: right;
+    font-size: 60px;
+}
+
+/*結果スコア*/
+
+#ResultJudge {
+    position: absolute;
+    top: 90px;
+    left: 500px;
+    text-align: left;
+    font-size: 48px;
+}
+
+/*判定*/
+
+#ResultAllPERFECT {
+    position: absolute;
+    top: 160px;
+    left: 500px;
+    text-align: left;
+    font-size: 30px;
+}
+
+/*PERFECT合計*/
+
+#ResultAllEARLY {
+    position: absolute;
+    top: 190px;
+    left: 500px;
+    text-align: left;
+    font-size: 30px;
+}
+
+/*EARLY合計*/
+
+#ResultAllLATE {
+    position: absolute;
+    top: 220px;
+    left: 500px;
+    text-align: left;
+    font-size: 30px;
+}
+
+/*LATE合計*/
+
+#ResultAllBAD {
+    position: absolute;
+    top: 250px;
+    left: 500px;
+    text-align: left;
+    font-size: 30px;
+}
+
+/*BAD合計*/
+
+#ResultAllMISS {
+    position: absolute;
+    top: 280px;
+    left: 500px;
+    text-align: left;
+    font-size: 30px;
+}
+
+/*MISS合計*/
+
+#ResultMenuOFF {
+    display: none;
+}
+
+/*結果モードオフ*/

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="キーボード大活躍のPC音ゲー">
+    <meta name="keywords" content="PC音ゲー, KeyBoarder">
+    <title>KeyBoarder</title>
+</head>
+<body>
+    <div id="MainWindow"> <!--メインウィンドウ-->
+
+        <span>
+            <link rel="stylesheet" href="GameWindow.css">
+            <link rel="stylesheet" href="ChartWiindow.css">
+        </span> <!--CSSファイル読み込み-->
+
+        <div id="OpeningMovieON">
+            <h1>SKIP : Shift + S</h1>
+        </div> <!--オープニングメニュー-->
+
+        <div id="StartMenuOFF" class="Center">
+            <img src="Image\Thumbnail\KeyBoarderTytle.png" alt="TYTLE" width="640px" height="360px"/>
+            <h2>"A" to Start</h2>
+            <h2>"S" to Setting</h2>
+            <p>Version: Alpha</p>
+        </div> <!--スタートメニュー-->
+
+        <div id="SelectMenuOFF">
+            <div id="SelectWindow">
+                <img src="Image\Thumbnail\KeyBoarder.png" alt="icon" class="Windowicon" width="19.2px" height="10.8px"/>
+                <h3 class="WindowTitle">曲を選択してください</h3>
+                <h3 id="SelectSortText"></h3>
+                <div class="WindowUpColor"></div>
+                <div class="WindowBack Center">B</div>
+                <hr class="WindowLine">
+                <div id="ScrollLock">
+                    <div id="MusicList"></div>
+                </div>
+                <div class="NotClickScrollBar"></div>
+            </div>
+            <div id="PlayingWaitMenuOFF" class="Center">
+                <div id="PlayingWaitWindow" class="Center">
+                    <img src="Image\Thumbnail\KeyBoarder.png" alt="icon" class="Windowicon" width="19.2px" height="10.8px"/>
+                    <h3 class="WindowTitle">exe起動中...</h3>
+                    <div class="WindowUpColor"></div>
+                    <div class="WindowBack Center">×</div>
+                    <hr class="WindowLine">
+                    <div id="PlayingWaitUnderWindow">
+                        <p id="PlayingWaitLoading">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!--セレクトメニュー-->
+
+        <div id="SettingMenuOFF">
+            <div id="SettingWindow">
+                <img src="Image\Thumbnail\KeyBoarder.png" alt="icon" class="Windowicon" width="19.2px" height="10.8px"/>
+                <h3 class="WindowTitle">設定</h3>
+                <div class="WindowUpColor"></div>
+                <div class="WindowBack Center">B</div>
+                <hr class="WindowLine">
+                <div class="SmallWindow" style="width: 508px; height: 160px; top: 33px; left: 13px">
+                    <div class="SmallWindowTitle Center">譜面設定</div>
+                </div>
+                <div class="SmallWindow" style="width: 320px; height: 132px; top: 210px; left: 13px">
+                    <div class="SmallWindowTitle Center">音量設定</div>
+                </div>
+                <div class="SmallWindow" style="width: 169px; height: 132px; top: 210px; left: 352px">
+                    <div class="SmallWindowTitle Center">詳細設定</div>
+                    <button onclick="DeleteData()">全データ削除</button>
+                </div>
+            </div>
+        </div> <!--設定メニュー-->
+
+        <div id="PlayModeOFF">
+            <div id="BackGroundMovie">
+                <h2 class="Reversal"><span id="COMBOS">0 COMBO</span></h2>
+                <h2 class="Reversal"><span id="ScoreByte">0 KB</span></h2>
+                <div id="ChartMode_Frame">
+                    
+                </div>
+            </div>
+            <div id="PauseMode">
+                <div id="PauseWindow">
+                    <h3 id="PauseMusicText">一時停止したため、曲名.exeを再起動する必要があります。</h3>
+                    <h3>選択してください。</h3>
+                    <h3>＞Enterキー：再開</h3>
+                    <h3>＞Spaceキー：再起動</h3>
+                    <h3>＞Escapeキー：中断</h3>
+                </div>
+                <div id="ResumeWindow">
+                    <img src="Image\Thumbnail\KeyBoarder.png" alt="icon" class="Windowicon" width="19.2px" height="10.8px"/>
+                    <h3 class="WindowTitle">システム回復中</h3>
+                    <div class="WindowUpColor"></div>
+                    <div class="WindowBack Center">×</div>
+                    <hr class="WindowLine">
+                    <h4 class="ResumeText" style="top: 10px; left: 30px;">システムを回復しています。<br>しばらくお待ちください。</h4>
+                    <h4 id="ResumeMusicText" class="ResumeText" style="top: 135px; left: 30px;"></h4>
+                    <h4 id="ResumePercent">0%</h4>
+                    <h4 class="ResumeText" style="top: 185px; left: 30px;">信用できる推定残り時間：</h4>
+                    <h4 id="ResumeSeconds">あと3秒</h4>
+                    <div id="ResumeSeekBarDiv">
+                        <div id="ResumeSeekBar"></div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--プレイ画面-->
+
+        <div id="ResultMenuOFF">
+            <div id="ResultWindow">
+                <img src="Image\Thumbnail\KeyBoarder.png" alt="icon" class="Windowicon" width="19.2px" height="10.8px"/>
+                <h3 class="WindowTitle">結果</h3>
+                <div class="WindowUpColor"></div>
+                <div class="WindowBack Center">B</div>
+                <hr class="WindowLine">
+                <div id="ResultMusic">
+                    <h1 id="ResultText"></h1>
+                </div>
+                <div id="ResultJacket"></div>
+                <p id="ResultJudge"></p>
+                <p id="ResultAllPERFECT"></p>
+                <p id="ResultAllEARLY"></p>
+                <p id="ResultAllLATE"></p>
+                <p id="ResultAllBAD"></p>
+                <p id="ResultAllMISS"></p>
+                <h3 id="ResultTOTALCOMBO"></h3>
+                <h3 id="ResultBeforeScore"></h3>
+                <h1 id="ResultScore"></h1>
+            </div>
+        </div> <!--リザルトウィンドウ-->
+
+        <span id="JavascriptReader">
+            <script src="anime.min.js"></script> <!--Anime.js読み込み-->
+            <script src="GameWindow.js"></script>
+            <script src="ChartSetting.js"></script>
+        </span> <!--JavaScriptファイル読み込み-->
+    </div>
+</body>
+</html>

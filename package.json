@@ -1,0 +1,45 @@
+{
+    "name": "KeyBoarder",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "electron ."
+    },
+    "build": {
+        "appId": "com.electron.yourapp",
+        "directories": {
+            "output": "Keyboarder"
+        },
+        "files": [
+            "assets",
+            "src",
+            "package.json",
+            "package-lock.json"
+        ],
+        "mac": {
+            "icon": "assets/mac/KeyBoarder.icns",
+            "target": [
+                "dmg"
+            ]
+        },
+        "win": {
+            "icon": "assets/win/KeyBoarder.ico",
+            "target": "nsis"
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true
+        }
+    },
+    "keywords": [],
+    "author": "折部氏 Oribe-shi",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^27.0.3"
+    },
+    "dependencies": {
+        "electron-store": "^8.1.0"
+    }
+}
